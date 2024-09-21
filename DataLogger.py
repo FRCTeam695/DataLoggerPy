@@ -1,13 +1,15 @@
-import string
-import numpy as np
+### PREREQUISITE LIBRARIES ###
+
+# pip install pandas
+# pip install tk
+# pip install openpyxl
+
+
 import tkinter as tk
 import pandas as pd
 import time
-import sys
 
 from networktables import NetworkTableEntry, NetworkTables 
-
-
 
 ### INITIALIZATIONS ###
 fileName = ""
@@ -20,8 +22,7 @@ def submit():
     global tableName
     tableName = tableName_tk.get()
     
-    root.destroy()
-    
+    root.destroy() 
 
 root = tk.Tk()
 fileName_tk = tk.StringVar()
@@ -49,7 +50,6 @@ root.mainloop()
 def connectionListener(connected, info):
     print(info, "; Connected=%s" % connected)
 
-
 # set the roborio IP address
 ip = "10.6.95.2"
 
@@ -66,7 +66,6 @@ ntKeyList = nt.getKeys()
 
 data = pd.DataFrame(columns = ["Time"] + ntKeyList) 
 print(data)
-
 
 ######################### MAIN LOOP #########################
 isSaved = False
@@ -91,8 +90,9 @@ def sampleInt():
 
 def save():
     currentTime = time.localtime(time.time())
-    csvFileName = fileName + "-" + time.strftime("%Y%m%d%H%M%S",currentTime)
-    data.to_csv(csvFileName, index=False)
+    currentFileName = fileName + "-" + time.strftime("%Y%m%d%H%M%S",currentTime)
+    data.to_csv(currentFileName + ".csv", index=False)
+    data.to_excel(currentFileName + ".xlsx", sheet_name= currentFileName , index = False)
     global isSaved
     isSaved = True
 

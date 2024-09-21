@@ -1,6 +1,12 @@
 # DataLoggerPy
 Logs Data in a given networktable
 
+### PREREQUISITE LIBRARIES ###
+
+# pip install pandas
+# pip install tkinter
+# pip install openpyxl
+
 
 Create a python script to run on the driver station that will log roborio generated metrics to a local CSV file with optional upload to google sheets.  See the attached image for the way that we are currently logging such data.  In this example, we are "logging" the absolute and relative encoder values for shooter pitch.
 On startup, the script should prompt for a filename, and a list of roborio value labels (network tables data labels) to be logged.  The script should then create a CSV file for output and write a header line that is the list of network table labels as its columns.  A first column called "timestamp" should automatically be included.
