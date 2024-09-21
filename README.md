@@ -6,6 +6,7 @@ Logs Data in a given networktable
 # pip install pandas
 # pip install tkinter
 # pip install openpyxl
+# pip install pynetworktables
 
 
 Create a python script to run on the driver station that will log roborio generated metrics to a local CSV file with optional upload to google sheets.  See the attached image for the way that we are currently logging such data.  In this example, we are "logging" the absolute and relative encoder values for shooter pitch.
